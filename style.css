@@ -52,7 +52,7 @@ h1 {
 }
 
 h2 {
-    color: var(--primary-color); /* GARANTINDO QUE H2 USE A COR PRIMÁRIA */
+    color: var(--primary-color);
     margin-top: 25px;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -84,14 +84,22 @@ ul {
     padding-left: 0;
 }
 
+/* CORREÇÃO DE ALINHAMENTO AQUI */
+ul li {
+    display: flex; /* Transforma o item em um container flexível */
+    align-items: flex-start; /* Alinha o conteúdo (ícone e texto) ao topo */
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
 ul li::before {
     content: '💻';
-    color: var(--primary-color); /* Ícone usa a cor verde */
+    color: var(--primary-color);
     font-weight: bold;
-    display: inline-block;
-    width: 1.5em;
-    margin-left: -1.5em;
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    flex-shrink: 0; /* Impede que o ícone seja esmagado */
 }
+/* FIM DA CORREÇÃO DE ALINHAMENTO */
 
 /* Links normais */
 a {
@@ -182,7 +190,6 @@ table tr:nth-child(even) td {
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--primary-color);
-    /* CORREÇÃO AQUI: USANDO rgba com a cor verde */
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); 
     transition: transform 0.3s ease;
 }
