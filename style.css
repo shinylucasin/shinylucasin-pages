@@ -2,7 +2,7 @@
 :root {
     --background-color: #0f0f0f; /* Preto muito escuro */
     --text-color: #d1d1d1; /* Cinza claro suave */
-    --primary-color: #4CAF50; /* Destaque verde neutro (pode ser usado para links/ícones) */
+    --primary-color: #4CAF50; /* Destaque verde neutro (links, títulos, bordas) */
     --secondary-color: #333333; /* Cinza escuro para acentos e bordas */
     --accent-color: #1a1a1a; /* Fundo do container ligeiramente mais claro */
     --link-hover-color: #81C784; /* Verde claro para hover */
@@ -48,15 +48,14 @@ h1 {
     text-align: center;
     margin-bottom: 5px;
     letter-spacing: 1px;
-    color: var(--primary-color); /* Usando a nova cor de destaque */
+    color: var(--primary-color);
 }
 
 h2 {
-    color: var(--primary-color);
+    color: var(--primary-color); /* GARANTINDO QUE H2 USE A COR PRIMÁRIA */
     margin-top: 25px;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    /* Removido text-align: center; */
 }
 
 h3 {
@@ -64,7 +63,7 @@ h3 {
     text-align: center;
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 30px; /* Adicionado espaço abaixo do subtítulo central */
+    margin-bottom: 30px;
 }
 
 hr {
@@ -128,12 +127,12 @@ a:hover {
     gap: 8px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--primary-color); /* Borda com a cor verde */
+    border: 1px solid var(--primary-color);
 }
 
 .social-button:hover {
-    background-color: var(--primary-color); /* Fundo vira verde no hover */
-    color: var(--background-color); /* Texto escuro no hover para contraste */
+    background-color: var(--primary-color);
+    color: var(--background-color);
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     border-color: var(--link-hover-color);
@@ -171,19 +170,20 @@ table td {
 }
 
 table tr:nth-child(even) td {
-    background-color: #0f0f0f; /* Uma linha mais escura para contraste */
+    background-color: #0f0f0f;
 }
 
 /* Avatar */
 .profile-picture {
     display: block;
-    margin: 0 auto 30px auto; /* Aumentado o margin-bottom para afastar do título */
+    margin: 0 auto 30px auto;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); /* Sombra luminosa verde */
+    /* CORREÇÃO AQUI: USANDO rgba com a cor verde */
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); 
     transition: transform 0.3s ease;
 }
 
