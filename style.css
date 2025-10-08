@@ -1,0 +1,204 @@
+/* Variáveis CSS para cores e fontes */
+:root {
+    --background-color: #1a1a2e; /* Azul escuro bem fechado */
+    --text-color: #e0e0e0; /* Cinza claro para o texto */
+    --primary-color: #e94560; /* Vermelho/rosa vibrante para destaque */
+    --secondary-color: #533483; /* Roxo escuro para elementos secundários */
+    --accent-color: #0f3460; /* Azul escuro para acentos */
+    --link-hover-color: #fc94af; /* Rosa claro para hover de links */
+    --font-family-sans: 'Roboto', sans-serif;
+    --font-family-mono: 'Fira Code', monospace;
+}
+
+/* Reset básico e estilos globais */
+body {
+    font-family: var(--font-family-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinhar ao topo */
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-fish-skin.png'); /* Textura sutil */
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--accent-color); /* Fundo do container um pouco mais claro */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 1.4em;
+    text-align: center;
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), var(--secondary-color), rgba(255, 255, 255, 0));
+    margin: 30px 0;
+}
+
+/* Parágrafos e listas */
+p, ul, ol {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+ul {
+    list-style-type: none; /* Remove bolinhas */
+    padding-left: 0;
+}
+
+ul li::before {
+    content: '💻'; /* Ícone para itens de lista */
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1.5em;
+}
+
+/* Links normais */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Botões de Mídia Social */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Quebra linha se muitos botões */
+    gap: 15px; /* Espaçamento entre os botões */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.social-button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--primary-color);
+}
+
+.social-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    border-color: var(--link-hover-color);
+}
+
+.social-button i {
+    font-size: 1.2em; /* Tamanho dos ícones */
+}
+
+/* Tabela de Skills e Música */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    border: 1px solid var(--secondary-color);
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+table tr:nth-child(even) td {
+    background-color: #1a1a2e; /* Uma linha mais escura para contraste */
+}
+
+/* Avatar */
+.profile-picture {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.6); /* Sombra luminosa */
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.08) rotate(5deg);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    h1 { font-size: 2.2em; }
+    h3 { font-size: 1.2em; }
+    .social-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
