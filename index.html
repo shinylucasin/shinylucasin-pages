@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Miguel | Desenvolvedor</title>
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/SEU_ID_GITHUB?v=4" type="image/x-icon">
+    <style>
+        /* Variáveis CSS para cores e fontes */
+        :root {
+            --background-color: #1a1a2e; /* Azul escuro bem fechado */
+            --text-color: #e0e0e0; /* Cinza claro para o texto */
+            --primary-color: #e94560; /* Vermelho/rosa vibrante para destaque */
+            --secondary-color: #533483; /* Roxo escuro para elementos secundários */
+            --accent-color: #0f3460; /* Azul escuro para acentos */
+            --link-hover-color: #fc94af; /* Rosa claro para hover de links */
+            --font-family-sans: 'Roboto', sans-serif;
+            --font-family-mono: 'Fira Code', monospace;
+        }
+
+        /* Reset básico e estilos globais */
+        body {
+            font-family: var(--font-family-sans);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinhar ao topo */
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-fish-skin.png'); /* Textura sutil */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--accent-color); /* Fundo do container um pouco mais claro */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Títulos */
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            text-align: center;
+            color: var(--text-color);
+            margin-top: 0;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), var(--secondary-color), rgba(255, 255, 255, 0));
+            margin: 30px 0;
+        }
+
+        /* Parágrafos e listas */
+        p, ul, ol {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        ul {
+            list-style-type: none; /* Remove bolinhas */
+            padding-left: 0;
+        }
+
+        ul li::before {
+            content: '💻'; /* Ícone para itens de lista */
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+
+        /* Links normais */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+            text-decoration: underline;
+        }
+
+        /* Botões de Mídia Social */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Quebra linha se muitos botões */
+            gap: 15px; /* Espaçamento entre os botões */
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .social-button {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+        }
+
+        .social-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            border-color: var(--link-hover-color);
+        }
+
+        .social-button i {
+            font-size: 1.2em; /* Tamanho dos ícones */
+        }
+
+        /* Tabela de Skills e Música */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        table th, table td {
+            border: 1px solid var(--secondary-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table td {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #1a1a2e; /* Uma linha mais escura para contraste */
+        }
+
+        /* Avatar */
+        .profile-picture {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.6); /* Sombra luminosa */
+            transition: transform 0.3s ease;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 20px auto;
+                padding: 20px;
+            }
+            h1 { font-size: 2.2em; }
+            h3 { font-size: 1.2em; }
+            .social-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img src="https://avatars.githubusercontent.com/u/SEU_ID_GITHUB?v=4" alt="Lucas Miguel" class="profile-picture">
+
+        <h1>💻 Olá! Eu sou Lucas Miguel 👋</h1>
+        <h3>Estudante de Ciência da Computação | Focado em C, Python e Web</h3>
+
+        <hr>
+
+        <h2>💡 Sobre Mim</h2>
+        <p>
+            Sou um estudante na <strong>Estácio</strong> apaixonado por <strong>tecnologia</strong> e em constante aprendizado.
+        </p>
+        <p>
+            Minha jornada de programação está concentrada em três pilares principais:
+        </p>
+        <ul>
+            <li><strong>Linguagem C:</strong> Para aprofundar na base, performance e eficiência do <em>low-level</em>.</li>
+            <li><strong>Python:</strong> Para automação, análise de dados e desenvolvimento rápido de aplicações.</li>
+            <li><strong>Desenvolvimento Web:</strong> Para criar interfaces de usuário dinâmicas e soluções acessíveis a todos.</li>
+        </ul>
+        <p>
+            Tenho projetos ativos no GitHub e certificados que demonstram minha evolução e dedicação em cada área.
+        </p>
+
+        <hr>
+
+        <h2>🚀 Minhas Principais Skills</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Linguagens/Ferramentas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Back-end/Base</strong></td>
+                    <td>C, Python</td>
+                </tr>
+                <tr>
+                    <td><strong>Web</strong></td>
+                    <td>HTML, CSS, JavaScript</td>
+                </tr>
+                <tr>
+                    <td><strong>Versionamento</strong></td>
+                    <td>Git, GitHub</td>
+                </tr>
+                <tr>
+                    <td><strong>Em Aprendizado</strong></td>
+                    <td>Novas tecnologias e frameworks!</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>🎧 Meu Som: Playlist de Dev</h2>
+        <p>
+            Se minha vida fosse uma trilha sonora de fundo enquanto eu programo, ela teria o som de:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Gênero Principal</th>
+                    <th>Artistas/Bandas Favoritas (BR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Indie Rock/Alternativo</strong></td>
+                    <td>Terno Rei, O Grilo, Vespas Mandarinas, Carne Doce.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pop Alternativo/MPB</strong></td>
+                    <td>Ana Frango Elétrico, Liniker, Tagua Tagua, Baleia.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rock Clássico Nacional</strong></td>
+                    <td>Legião Urbana, Cássia Eller, Skank (o lado Pop Rock).</td>
+                </tr>
+                <tr>
+                    <td><strong>Outros Hobbies Sonoros</strong></td>
+                    <td>J-Rock, música instrumental, trilhas de jogos e músicas lo-fi para focar.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="small-text">
+            <strong>📢 Dica de Banda:</strong> Se você curte uma vibe mais melancólica e introspectiva, escute o álbum <em>Vou Fazer de Você um Lápis</em> d'<strong>O Terno</strong>.
+        </p>
+
+        <hr>
+
+        <h2>🎮 Interesses e Conexões</h2>
+        <p>
+            Além da programação, adoro: Touhou, música (J-Rock/Metal), jogos de PC e console, mangás/animes e explorar novas tecnologias.
+        </p>
+        <p>
+            <strong>Citação Favorita:</strong> <em>"Shrine Maiden who protects dreams and traditions"</em> ~ Reimu Hakurei
+        </p>
+
+        <hr>
+
+        <h2>📫 Conecte-se Comigo!</h2>
+        <p style="text-align: center;">
+            Vamos nos conectar, trocar conhecimento e quem sabe, colaborar em um projeto! Sinta-se à vontade para me mandar uma mensagem.
+        </p>
+
+        <div class="social-buttons">
+            <a href="https://www.linkedin.com/in/SEU_LINKEDIN_AQUI" target="_blank" class="social-button">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/SEU_USUARIO_GITHUB" target="_blank" class="social-button">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.youtube.com/c/SEU_CANAL_YOUTUBE_AQUI" target="_blank" class="social-button">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="SEU_LINK_SPOTIFY_AQUI" target="_blank" class="social-button">
+                <i class="fab fa-spotify"></i> Spotify
+            </a>
+            <a href="SEU_LINK_DISCORD_OU_SERVER_AQUI" target="_blank" class="social-button">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+            </div>
+
+    </div>
+</body>
+</html>
