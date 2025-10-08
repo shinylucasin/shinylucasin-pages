@@ -1,11 +1,11 @@
-/* Variáveis CSS para cores e fontes */
+/* Variáveis CSS para cores e fontes (TEMA NEUTRO) */
 :root {
-    --background-color: #1a1a2e; /* Azul escuro bem fechado */
-    --text-color: #e0e0e0; /* Cinza claro para o texto */
-    --primary-color: #e94560; /* Vermelho/rosa vibrante para destaque */
-    --secondary-color: #533483; /* Roxo escuro para elementos secundários */
-    --accent-color: #0f3460; /* Azul escuro para acentos */
-    --link-hover-color: #fc94af; /* Rosa claro para hover de links */
+    --background-color: #0f0f0f; /* Preto muito escuro */
+    --text-color: #d1d1d1; /* Cinza claro suave */
+    --primary-color: #4CAF50; /* Destaque verde neutro (pode ser usado para links/ícones) */
+    --secondary-color: #333333; /* Cinza escuro para acentos e bordas */
+    --accent-color: #1a1a1a; /* Fundo do container ligeiramente mais claro */
+    --link-hover-color: #81C784; /* Verde claro para hover */
     --font-family-sans: 'Roboto', sans-serif;
     --font-family-mono: 'Fira Code', monospace;
 }
@@ -20,10 +20,10 @@ body {
     line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinhar ao topo */
+    align-items: flex-start;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-fish-skin.png'); /* Textura sutil */
+    background-image: url('https://www.transparenttextures.com/patterns/dark-fish-skin.png');
 }
 
 .container {
@@ -31,9 +31,9 @@ body {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background-color: var(--accent-color); /* Fundo do container um pouco mais claro */
+    background-color: var(--accent-color);
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
     animation: fadeIn 1s ease-out;
 }
 
@@ -42,19 +42,21 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Títulos */
-h1, h2, h3 {
-    color: var(--primary-color);
-    margin-top: 25px;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
+/* TÍTULOS E ALINHAMENTO CORRIGIDO */
 h1 {
     font-size: 2.8em;
     text-align: center;
     margin-bottom: 5px;
     letter-spacing: 1px;
+    color: var(--primary-color); /* Usando a nova cor de destaque */
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Removido text-align: center; */
 }
 
 h3 {
@@ -62,6 +64,7 @@ h3 {
     text-align: center;
     color: var(--text-color);
     margin-top: 0;
+    margin-bottom: 30px; /* Adicionado espaço abaixo do subtítulo central */
 }
 
 hr {
@@ -78,13 +81,13 @@ p, ul, ol {
 }
 
 ul {
-    list-style-type: none; /* Remove bolinhas */
+    list-style-type: none;
     padding-left: 0;
 }
 
 ul li::before {
-    content: '💻'; /* Ícone para itens de lista */
-    color: var(--primary-color);
+    content: '💻';
+    color: var(--primary-color); /* Ícone usa a cor verde */
     font-weight: bold;
     display: inline-block;
     width: 1.5em;
@@ -107,8 +110,8 @@ a:hover {
 .social-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Quebra linha se muitos botões */
-    gap: 15px; /* Espaçamento entre os botões */
+    flex-wrap: wrap;
+    gap: 15px;
     margin-top: 30px;
     margin-bottom: 20px;
 }
@@ -125,19 +128,19 @@ a:hover {
     gap: 8px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--primary-color); /* Borda com a cor verde */
 }
 
 .social-button:hover {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--primary-color); /* Fundo vira verde no hover */
+    color: var(--background-color); /* Texto escuro no hover para contraste */
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     border-color: var(--link-hover-color);
 }
 
 .social-button i {
-    font-size: 1.2em; /* Tamanho dos ícones */
+    font-size: 1.2em;
 }
 
 /* Tabela de Skills e Música */
@@ -168,19 +171,19 @@ table td {
 }
 
 table tr:nth-child(even) td {
-    background-color: #1a1a2e; /* Uma linha mais escura para contraste */
+    background-color: #0f0f0f; /* Uma linha mais escura para contraste */
 }
 
 /* Avatar */
 .profile-picture {
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 30px auto; /* Aumentado o margin-bottom para afastar do título */
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(233, 69, 96, 0.6); /* Sombra luminosa */
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); /* Sombra luminosa verde */
     transition: transform 0.3s ease;
 }
 
